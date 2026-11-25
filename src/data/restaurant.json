@@ -1,0 +1,19 @@
+{
+  "name": "The Food Corner",
+  "tagline": "Authentic North Indian, Tandoori & Mughlai Delicacies",
+  "cuisine": "North Indian • Tandoor & Biryani • Indo-Chinese",
+  "rating": 4.9,
+  "reviewsCount": 1420,
+  "priceRange": "₹₹",
+  "logo": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&auto=format&fit=crop&q=80",
+  "coverImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&auto=format&fit=crop&q=80",
+  "address": "452 Culinary Boulevard, Suite 100, San Francisco, CA 94103",
+  "phone": "+1 (555) 782-9901",
+  "email": "hello@thefoodcorner.com",
+  "currency": "INR",
+  "currencySymbol": "₹",
+  "taxRatePercent": 8.25,
+  "serviceFee": 1.50,
+  "openingHours": "10:00 AM - 11:00 PM",
+  "prepTime": "15-20 mins"
+}

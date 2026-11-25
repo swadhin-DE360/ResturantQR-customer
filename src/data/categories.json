@@ -1,0 +1,50 @@
+[
+  {
+    "id": "CAT-001",
+    "name": "Starters",
+    "description": "Crispy kebabs, tikkas, and mouth-watering appetizers straight from the tandoor.",
+    "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 1,
+    "status": "Active"
+  },
+  {
+    "id": "CAT-002",
+    "name": "Main Course",
+    "description": "Rich Indian curries, slow-simmered gravies, and aromatic paneer & chicken specialties.",
+    "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 2,
+    "status": "Active"
+  },
+  {
+    "id": "CAT-003",
+    "name": "Biryani",
+    "description": "Royal dum-cooked fragrant basmati rice layered with royal spices and saffron.",
+    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 3,
+    "status": "Active"
+  },
+  {
+    "id": "CAT-004",
+    "name": "Chinese",
+    "description": "Indo-Chinese sizzling wok specialties, crispy noodles, and spicy fried rice.",
+    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 4,
+    "status": "Active"
+  },
+  {
+    "id": "CAT-005",
+    "name": "Beverages",
+    "description": "Thick mango lassis, refreshing coolers, spiced chaas, and artisanal teas.",
+    "image": "https://images.unsplash.com/photo-1556881286-fc6915169721?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 5,
+    "status": "Active"
+  },
+  {
+    "id": "CAT-006",
+    "name": "Desserts",
+    "description": "Warm gulab jamuns, saffron rasmalai, shahi kulfi, and classic Indian sweets.",
+    "image": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80",
+    "displayOrder": 6,
+    "status": "Active"
+  }
+]

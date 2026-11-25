@@ -1,0 +1,57 @@
+[
+  {
+    "id": "TBL-001",
+    "tableNumber": "TABLE-001",
+    "tableName": "Table 01",
+    "qrToken": "TABLE-001",
+    "section": "Main Dining Room",
+    "seats": 4,
+    "capacity": 4,
+    "status": "Active",
+    "createdAt": "2026-01-10"
+  },
+  {
+    "id": "TBL-002",
+    "tableNumber": "TABLE-002",
+    "tableName": "Table 02",
+    "qrToken": "TABLE-002",
+    "section": "Main Dining Room",
+    "seats": 2,
+    "capacity": 2,
+    "status": "Active",
+    "createdAt": "2026-01-10"
+  },
+  {
+    "id": "TBL-003",
+    "tableNumber": "TABLE-003",
+    "tableName": "Table 03",
+    "qrToken": "TABLE-003",
+    "section": "Window Booth",
+    "seats": 4,
+    "capacity": 4,
+    "status": "Active",
+    "createdAt": "2026-01-12"
+  },
+  {
+    "id": "TBL-004",
+    "tableNumber": "TABLE-004",
+    "tableName": "Table 04",
+    "qrToken": "TABLE-004",
+    "section": "Garden Patio",
+    "seats": 6,
+    "capacity": 6,
+    "status": "Active",
+    "createdAt": "2026-01-12"
+  },
+  {
+    "id": "TBL-005",
+    "tableNumber": "TABLE-005",
+    "tableName": "Table 05",
+    "qrToken": "TABLE-005",
+    "section": "VIP Lounge",
+    "seats": 4,
+    "capacity": 4,
+    "status": "Inactive",
+    "createdAt": "2026-01-15"
+  }
+]
