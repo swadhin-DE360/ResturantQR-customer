@@ -105,9 +105,6 @@ export const MenuHomePage: React.FC = () => {
                     </p>
                   )}
                 </div>
-                <span className="text-xs font-bold text-stone-400">
-                  {categoryDishes.length} {categoryDishes.length === 1 ? 'item' : 'items'}
-                </span>
               </div>
 
               {/* Grid of Food Cards */}

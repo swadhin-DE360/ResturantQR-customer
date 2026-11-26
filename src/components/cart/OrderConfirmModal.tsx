@@ -139,11 +139,6 @@ export const OrderConfirmModal: React.FC<OrderConfirmModalProps> = ({
                     </span>
                     <div className="truncate">
                       <p className="font-bold text-[#181D23] truncate">{item.name}</p>
-                      {item.specialInstructions && (
-                        <p className="text-[10px] text-stone-500 italic truncate">
-                          "{item.specialInstructions}"
-                        </p>
-                      )}
                     </div>
                   </div>
                   <div className="text-right shrink-0">

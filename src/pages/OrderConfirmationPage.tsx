@@ -14,7 +14,6 @@ import {
   AlertCircle,
   HelpCircle,
   ArrowLeft,
-  ArrowRight,
   Sparkles,
   Receipt,
   User,
@@ -376,11 +375,6 @@ export const OrderConfirmationPage: React.FC = () => {
                             </>
                           )}
                         </div>
-                        {item.specialInstructions && (
-                          <p className="text-[10px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded mt-1 inline-block">
-                            "{item.specialInstructions}"
-                          </p>
-                        )}
                       </div>
                     </div>
 
@@ -422,17 +416,6 @@ export const OrderConfirmationPage: React.FC = () => {
                 <span>Grand Total to Pay</span>
                 <span className="text-[#F47738]">{formatCurrency(order.total)}</span>
               </div>
-            </div>
-
-            {/* Direct link to dedicated Order Details Page */}
-            <div className="pt-2 text-center">
-              <Link
-                to={`/order-details/${order.orderNumber}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#F47738] hover:text-[#e05e1f] hover:underline"
-              >
-                <span>Open Dedicated Order Details & Lifecycle Timeline</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
             </div>
 
             {/* Restaurant Info Footer in Details */}

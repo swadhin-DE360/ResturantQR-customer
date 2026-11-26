@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   ShoppingBag,
   Trash2,
-  QrCode,
   ShieldCheck,
   ArrowRight,
   ArrowLeft,
@@ -11,14 +10,16 @@ import {
   FileText,
   User,
   Phone,
-  AlertCircle,
+  CreditCard,
+  Store,
+  CheckCircle2,
 } from 'lucide-react';
+import diningTableIcon from '@/assets/icons/dining-table.png';
 import { useNavigate } from 'react-router-dom';
 import { CartItemRow } from '@/components/cart/CartItemRow';
 import { OrderConfirmModal } from '@/components/cart/OrderConfirmModal';
 import { formatCurrency } from '@/utils';
 import { APP_CONFIG } from '@/constants';
-import restaurantData from '@/data/restaurant.json';
 import tablesData from '@/data/tables.json';
 import { SAMPLE_MOCK_ORDER } from '@/data/mock-order';
 import { TableInfo } from '@/types';
@@ -44,6 +45,7 @@ export const CartPage: React.FC = () => {
   const [customerName, setCustomerName] = useState(SAMPLE_MOCK_ORDER.customerName || '');
   const [customerPhone, setCustomerPhone] = useState(SAMPLE_MOCK_ORDER.customerPhone || '');
   const [specialNotes, setSpecialNotes] = useState(SAMPLE_MOCK_ORDER.notes || '');
+  const [paymentMethod, setPaymentMethod] = useState<'online' | 'counter'>('online');
 
   // Confirmation modal state
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
@@ -91,13 +93,13 @@ export const CartPage: React.FC = () => {
       {/* Header Banner */}
       <div className="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-card flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 text-[#F47738] flex items-center justify-center font-extrabold shadow-2xs shrink-0">
-            <ShoppingBag className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-[#F47738] flex items-center justify-center font-extrabold shadow-2xs shrink-0">
+            <img src={diningTableIcon} alt="Table" className="w-8 h-8 object-contain shrink-0" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-lg sm:text-xl font-black text-[#181D23]">
-                Your Table Order
+                Table Order
               </h1>
               {totalCount > 0 && (
                 <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-[#F47738] text-white">
@@ -105,9 +107,8 @@ export const CartPage: React.FC = () => {
                 </span>
               )}
             </div>
-            <p className="text-xs text-stone-500 font-medium mt-0.5 flex items-center gap-1">
-              <QrCode className="w-3.5 h-3.5 text-[#F47738]" />
-              <span>Dine-In Table: <strong>{tableName}</strong> ({tableCode}) • {tableSection}</span>
+            <p className="text-xs text-stone-500 font-medium mt-0.5 flex items-center gap-1.5">
+              <span>Dine-In Table: <strong>{tableName}</strong> • {tableSection}</span>
             </p>
           </div>
         </div>
@@ -249,16 +250,81 @@ export const CartPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Dine-In Payment Notice */}
-          <div className="p-4 bg-orange-50/70 rounded-2xl border border-orange-200/80 flex items-start gap-3 text-xs text-stone-700">
-            <AlertCircle className="w-5 h-5 text-[#F47738] shrink-0 mt-0.5" />
-            <div className="space-y-0.5">
-              <p className="font-bold text-[#181D23]">
-                Pay at Table (No Online Payment Required)
+          {/* Payment Method Selection */}
+          <div className="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-card space-y-3.5">
+            <div>
+              <h3 className="text-sm font-extrabold text-[#181D23]">
+                Payment Option
+              </h3>
+              <p className="text-xs text-stone-500 font-medium mt-0.5">
+                Choose how you would like to pay for your meal
               </p>
-              <p className="text-stone-600 leading-relaxed">
-                Clicking <strong>Place Order</strong> sends your dishes straight to {restaurantData.name}'s kitchen. You can settle the bill with your server at the table after dining.
-              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Online Payment */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('online')}
+                className={`p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 relative ${
+                  paymentMethod === 'online'
+                    ? 'border-[#F47738] bg-orange-50/50 shadow-xs ring-1 ring-[#F47738]'
+                    : 'border-stone-200 hover:border-stone-300 bg-white'
+                }`}
+              >
+                <div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                    paymentMethod === 'online'
+                      ? 'bg-[#F47738] text-white'
+                      : 'bg-stone-100 text-stone-600'
+                  }`}
+                >
+                  <CreditCard className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0 pr-5">
+                  <span className="text-xs sm:text-sm font-extrabold text-[#181D23] block">
+                    Online Payment
+                  </span>
+                  <span className="text-[11px] text-stone-500 font-medium block mt-0.5">
+                    UPI, Credit/Debit Cards, Net Banking
+                  </span>
+                </div>
+                {paymentMethod === 'online' && (
+                  <CheckCircle2 className="w-4 h-4 text-[#F47738] absolute top-3.5 right-3.5 shrink-0" />
+                )}
+              </button>
+
+              {/* Pay on Counter */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('counter')}
+                className={`p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 relative ${
+                  paymentMethod === 'counter'
+                    ? 'border-[#F47738] bg-orange-50/50 shadow-xs ring-1 ring-[#F47738]'
+                    : 'border-stone-200 hover:border-stone-300 bg-white'
+                }`}
+              >
+                <div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                    paymentMethod === 'counter'
+                      ? 'bg-[#F47738] text-white'
+                      : 'bg-stone-100 text-stone-600'
+                  }`}
+                >
+                  <Store className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0 pr-5">
+                  <span className="text-xs sm:text-sm font-extrabold text-[#181D23] block">
+                    Pay on Counter
+                  </span>
+                  <span className="text-[11px] text-stone-500 font-medium block mt-0.5">
+                    Cash, Card, or UPI directly at the counter
+                  </span>
+                </div>
+                {paymentMethod === 'counter' && (
+                  <CheckCircle2 className="w-4 h-4 text-[#F47738] absolute top-3.5 right-3.5 shrink-0" />
+                )}
+              </button>
             </div>
           </div>
 

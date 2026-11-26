@@ -4,12 +4,12 @@ import {
   X,
   ShoppingBag,
   Trash2,
-  QrCode,
   ShieldCheck,
   ArrowRight,
   Sparkles,
   UtensilsCrossed,
 } from 'lucide-react';
+import diningTableIcon from '@/assets/icons/dining-table.png';
 import { CartItemRow } from './CartItemRow';
 import { OrderConfirmModal } from './OrderConfirmModal';
 import { formatCurrency } from '@/utils';
@@ -90,8 +90,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-stone-500 font-medium mt-0.5 flex items-center gap-1">
-                      <QrCode className="w-3.5 h-3.5 text-[#F47738]" />
+                    <p className="text-xs text-stone-500 font-medium mt-0.5 flex items-center gap-1.5">
+                      <img src={diningTableIcon} alt="Table" className="w-4 h-4 object-contain shrink-0" />
                       <span>Ordering for <strong>{tableName}</strong></span>
                     </p>
                   </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flame, Star, Plus } from 'lucide-react';
+import { Star, Plus } from 'lucide-react';
+import hotDishIcon from '@/assets/icons/hot-dish.png';
 import { MenuItem } from '@/types';
 import { formatCurrency } from '@/utils';
 import { Badge } from '@/components/common/Badge';
@@ -21,8 +22,8 @@ export const PopularItemsSection: React.FC<PopularItemsSectionProps> = ({
     <section className="space-y-3 pt-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-orange-100 text-[#F47738] flex items-center justify-center">
-            <Flame className="w-4 h-4 fill-[#F47738]" />
+          <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center p-1">
+            <img src={hotDishIcon} alt="Popular Dishes" className="w-full h-full object-contain" />
           </div>
           <div>
             <h3 className="text-sm sm:text-base font-extrabold text-[#181D23] tracking-tight">
@@ -45,11 +46,11 @@ export const PopularItemsSection: React.FC<PopularItemsSectionProps> = ({
             <div
               key={dish.id}
               onClick={() => onSelectItem(dish)}
-              className="w-44 sm:w-52 shrink-0 bg-white rounded-3xl border border-stone-200/80 p-3 shadow-card hover:border-[#F47738]/40 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98]"
+              className="w-44 sm:w-52 shrink-0 bg-white rounded-xl border border-stone-200/80 shadow-card hover:border-[#F47738]/40 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98]"
             >
               <div>
                 {/* Image & Dietary Tag */}
-                <div className="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden bg-stone-100 mb-2.5">
+                <div className="relative h-28 sm:h-32 w-full rounded-xl overflow-hidden bg-stone-100 mb-2.5">
                   <img
                     src={dish.image}
                     alt={dish.name}
@@ -72,17 +73,19 @@ export const PopularItemsSection: React.FC<PopularItemsSectionProps> = ({
                 </div>
 
                 {/* Title & Category */}
-                <span className="text-[10px] text-stone-400 font-semibold uppercase tracking-wider block">
+                <div className='p-2 pt-0!'>
+                  <span className="text-[10px] text-stone-400 font-semibold uppercase tracking-wider block">
                   {dish.categoryName}
                 </span>
                 <h4 className="text-xs sm:text-sm font-extrabold text-[#181D23] leading-snug line-clamp-1 group-hover:text-[#F47738] transition-colors mt-0.5">
                   {dish.name}
                 </h4>
+                </div>
               </div>
 
               {/* Price & Add Button */}
-              <div className="flex items-center justify-between mt-3 pt-2 border-t border-stone-100">
-                <span className="text-xs sm:text-sm font-black text-[#181D23]">
+              <div className="flex items-center justify-between mt-3 p-2 border-t border-stone-100">
+                <span className="text-sm sm:text-sm font-bold text-[#181D23]">
                   {formatCurrency(dish.price)}
                 </span>
 

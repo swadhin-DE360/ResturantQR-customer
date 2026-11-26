@@ -3,11 +3,11 @@ import {
   Star,
   Clock,
   MapPin,
-  QrCode,
   Info,
   Phone,
   CheckCircle2,
 } from 'lucide-react';
+import diningTableIcon from '@/assets/icons/dining-table.png';
 import restaurantData from '@/data/restaurant.json';
 import tablesData from '@/data/tables.json';
 import { TableInfo } from '@/types';
@@ -69,9 +69,8 @@ export const RestaurantHero: React.FC<RestaurantHeroProps> = ({ table: propTable
         {/* Identified Table Callout */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-orange-50/90 via-amber-50/50 to-orange-50/80 border border-orange-200/70">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#F47738] text-white flex flex-col items-center justify-center font-black shadow-sm shrink-0">
-              <QrCode className="w-5 h-5" />
-              <span className="text-[9px] uppercase tracking-wider">QR</span>
+            <div className="w-12 h-12 rounded-xl bg-[#F47738]/10 border border-orange-200 flex items-center justify-center p-2 shadow-xs shrink-0">
+              <img src={diningTableIcon} alt="Table" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">
